@@ -1,0 +1,4 @@
+,transType,amount
+0,PURCHASE,1000.0
+1,REFUND,250.0
+2,PURCHASE,500.0
