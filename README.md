@@ -32,21 +32,18 @@ In the above workflow, we assume you already have a loading system in place that
 ### **Prerequisites**
 
     - An AWS account (Free)
-    - Basic Understanding of the above workflow and what we are tring to achieve.
-    - lambda code in `lambda_function.py` - from repository
-    - sample file - `transactions.json` - from repository
+    - Basic Understanding of the above workflow and what we are tring to achieve
+    - Lambda code in `lambda_function.py` - from repository
+    - Sample file - `transactions.json` - from repository
 
 
 ### **LET'S GET STARTED**
-
 &nbsp;
-
 #### **STEP 1 - Set Up an AWS s3 Bucket with two objects (folders) _raw & processed_**
  Go to your AWS console and search for S3 follow the steps in the image below.
  
 
  - **a)**
-
 ![Project Workflow 1](s3_images/S3_Bucket_1.png)
 
 - **b)**
@@ -74,7 +71,7 @@ On AWS , **IAM** stands for Identity Access Management. and is used to define ro
 
 
 - **c)**
-Copy the script from the `lambda_function.py` file on this github repository and paste it within that of your newly created lambda function.
+Copy the script from the [`lambda_function.py`](lambda_function.py) file on this github repository and paste it within that of your newly created lambda function.
 ![Project Workflow 7](lambda_images/lambda_Set_Up_3_script.png)
 
 - **d) In the Next 5 steps, we would modify the policy for the role we created for our Lambda function to also allow Lambda access to write to s3.**
@@ -137,7 +134,7 @@ Navigate back to your console, and search for cloud9 and follw the steps in the 
 
 - **v ]** Once you are done with the tasks above , click on **'Open IDE'** to open up the command session of your EC-2 instance where you can now run your commands.
 
-- **vi ]** Next, run the commands outlined in the **`cloud9_IDE_scripts.sh`** file within the github repository. Copy and run them **line by line**.** 
+- **vi ]** Next, run the commands outlined in the [**`cloud9_IDE_scripts.sh`**](cloud9_IDE_scripts.sh) file within the github repository. Copy and run them **line by line**. 
 
 - **vii ]** After the above execution , this layer should now be accessible to our Lambda Function.
 &nbsp;
@@ -214,7 +211,7 @@ On your Console, Navigate back to the s3 Bucket created earlier and go to the **
 
 ### **EXECUTION**
 
-With everything now set up, we can go ahead to upload a sample json file into the **/raw** directory of our **s3 bucket**. Use the file called `transactions.json` from the github repository. Follow the steps below to see the Magic afterwards !! ..
+With everything now set up, we can go ahead to upload a sample json file into the **/raw** directory of our **s3 bucket**. Use the file called [`transactions.json`](transactions.json) from the github repository. Follow the steps below to see the Magic afterwards !! ..
 
 1) a] Navigate to s3
 ![Project Workflow 36](s3_images/S3_Upload_Raw_file.png)
