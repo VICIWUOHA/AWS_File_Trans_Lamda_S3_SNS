@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Id": "example-ID",
+    "Statement": [
+      {
+        "Sid": "example-statement-ID",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "*"
+        },
+        "Action": "SNS:Publish",
+        "Resource": "arn:aws:sns:us-east-1:YourAccountID:Mailer",
+        "Condition": {
+          "StringEquals": {
+            "aws:SourceAccount": "YourAccountID"
+          },
+          "ArnLike": {
+            "aws:SourceArn": "arn:aws:s3:*:*:YourS3BucketName"
+          }
+        }
+      }
+    ]
+  }
