@@ -53,7 +53,7 @@ In the above workflow, we assume you already have a loading system in place that
 ![Project Workflow 3](s3_images/S3_Bucket_8_folder_setup.png)
 
 - **d)**
-![Project Workflow 4](s3_images/S3_Bucket_3.png)
+Cheers..., Now we are done with setting up our s3 Bucket. We'd come bact to it in **STEP 5**.
 
 &nbsp;
 
