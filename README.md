@@ -257,7 +257,7 @@ Within  your inbox, you should  see a mail similar to the one shown below.
 
 - You might have run into errors while executing this project, That is part of the learning/implementation journey. Do well to check out AWS Community pages /Faq pages for solutions to your errors. You can also contact me via Linkedin [@viciwuoha](https://linkedin.com/in/viciwuoha).
 
-- Depending on your Use Case for similar operations, AWS advices that you use two different s3 buckets to avoid conflicts during transactioons within one bucket. However, this use case is a sample and can cover for that.
+- Depending on your Use Case for similar operations, AWS advices that you use two different s3 buckets to avoid conflicts during transactions within one bucket. However, this use case is a sample and can cover for that.
 
 - In the course of developing this project, this [video](https://youtu.be/H_rRlnSw_5s) from **Be A Better Dev** on Youtube was helpful. You can check it out.
 
