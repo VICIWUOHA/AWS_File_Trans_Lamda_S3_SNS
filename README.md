@@ -4,7 +4,7 @@
 #### **Date : 28/08/2022**
 &nbsp;
 ## **Project Architecture**
-- The Workflow of this project is shown below depicting how the following [AWS solutions](https://aws.amazon.com/) are used and can aid your **data engineering** processes. AWS provides cloud serveless compute solutions like [Lambda](https://aws.amazon.com/lambda/) & [Glue](https://aws.amazon.com/glue/) alongside storage services like **s3** - ([Simple Storage Service](https://aws.amazon.com/s3/)) alongside an array of pay-as-you-go services which are cheap and affordable.
+- The Workflow of this project is shown below depicting how the following [AWS solutions](https://aws.amazon.com/) are used and can aid your **data engineering** processes. AWS provides cloud serveless compute solutions like [Lambda](https://aws.amazon.com/lambda/) & [Glue](https://aws.amazon.com/glue/), storage services like **s3** - ([Simple Storage Service](https://aws.amazon.com/s3/)) alongside an array of pay-as-you-go services which are cheap and affordable.
 &nbsp;
 
 ![Project Workflow](AWS_Lambda_S3_by_viciwuoha.png)
@@ -13,20 +13,20 @@
 
 ### **About The Project**
 
-Occassionally, as part of your ETL/ELT process as a data engineer, you would want to save raw data from apllications to your data lake in an unprocessed format (bronze form) and then begin downstream processing to either silver format or even a usable format for analytics like loading to an RDBMS (Relational Database Management System). 
-However, on some occassions you want the following ;
+Occassionally, as part of your ETL/ELT process as a data engineer, you would want to save raw data from apllications to your data lake in an unprocessed format (bronze form) and then begin downstream processing to either silver format or even a usable format for analytics like loading to an [RDBMS](https://www.tutorialspoint.com/sql/sql-rdbms-concepts.htm) (Relational Database Management System). 
+However, on some occassions you may want the following ;
 - If the process would be recurrent, you may want to make it fully automated.
 - Trigger one event after another
 - To get notifications when a task is complete/ encounters a failure. 
 
-In the above workflow, we assume you already have a loading system in place that dumps files into your s3 bucket in json format . Our sample file is the _`transactions.json`_ file. The Automation is as follows;
+In the above workflow, we assume you already have a loading system in place that ingests files into your s3 bucket in json format . Our sample file is the [_`transactions.json`_](transactions.json) file. The Automation is as follows;
 - Immediately a file arrives the **raw** zone of your s3 bucket (data lake). 
 - An s3 Put event is Triggered and subsequently makes a call to a Lambda function .
-    - **N/B :** Lambda is a serveless compute solution that can run your workloads . It can use either a python or node.js runtime as at the time of this writing. So in this case we have a **python script** running on Lambda to process our json data to a more readable fromat (_`.csv`_) which can easily be loaded to an RDBMS (eg; AWS Redshift, for downstream queries by data analysts/BI analysts). or for raw access by your business teams.
-- Lastly once a transaction stream is processed and written to the **processed** zone of our s3 bucket, we want our s3 bucket put event to also trigger an email using SNS (Simple Notification Service) to let us know some details about the workload like runtime, and some metadata of what was put into the s3 bucket.
+    - **N/B :** Lambda is a serveless compute solution that can run your workloads . It can use either a python or node.js runtime as at the time of this writing. So in this case we have a **python script** running on Lambda to process our json data to a more readable fromat (_`.csv`_) which can easily be loaded to a RDBMS/Data Warehouse (eg; [AWS Redshift](https://aws.amazon.com/redshift/), for downstream queries by data analysts/BI analysts). or for raw access by your business teams.
+- Lastly once a transaction stream is processed and written to the **processed** zone of our s3 bucket, we want our s3 bucket put event to also trigger an email using [SNS](https://aws.amazon.com/sns/) (Simple Notification Service) to let us know some details about the workload like runtime, and some metadata of what was put into the s3 bucket.
     - **N/B :** SNS helps us create Topics that users can subscribe to in order to be able to receive simple notification on events. This can be either email or SMS.
 - We also want to be able tocheck our logs using Cloudwatch.
-    - **N/B :** Cloudwatch is a service that allows us to see logs for events used on AWS. Each log is stored with a corresponding timestamp for easy tracking.
+    - **N/B :** [Cloudwatch](https://aws.amazon.com/cloudwatch/) is a monitoring and observability service that helps us monitor applications/infrastructure on AWS. In simple terms, this service allows us to see logs for events used on AWS. Each log is stored with a corresponding timestamp for easy tracking.
 
 
 ### **Prerequisites**
